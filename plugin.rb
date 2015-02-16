@@ -29,6 +29,6 @@ after_initialize do
   end
 
   Rails.application.routes.draw do
-    get "session/sso_redirect" => "session#sso_redirect"
+    get "session/sso_redirect" => "session#sso"
   end
 end
