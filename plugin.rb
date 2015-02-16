@@ -24,3 +24,6 @@ after_initialize do
       end
 
       redirect_to redirect
+    end
+  end
+end
