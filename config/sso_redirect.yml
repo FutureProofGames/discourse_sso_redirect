@@ -1,0 +1,5 @@
+sso_redirect:
+    sso_redirect_domain_whitelist:
+        client: false
+        type: list
+        default: ''
