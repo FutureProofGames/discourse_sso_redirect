@@ -9,6 +9,8 @@ after_initialize do
   end
 
   SessionController.class_eval do
+    skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'sso_redirect']
+
     def sso_redirect
       redirect = Rack::Utils.parse_query(request.query_string).return_path
       domains = SiteSetting.sso_redirect_domain_whitelist
