@@ -29,6 +29,6 @@ after_initialize do
   end
 
   Discourse::Application.routes.append do
-    get "session/sso_redirect" => "session#sso"
+    get "session/sso_redirect" => "session#sso_redirect"
   end
 end
