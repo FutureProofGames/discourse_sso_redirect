@@ -8,8 +8,8 @@ after_initialize do
     skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'sso_redirect']
 
     def sso_redirect
-      logger.info "Entering sso_redirect with query string #{request.query_string}"
-      redirect = Rack::Utils.parse_query(request.query_string).return_path
+      Rails.logger.info "Entering sso_redirect with query string #{request.query_string}"
+      redirect = Rack::Utils.parse_query(request.query_string)["return_path"]
       domains = SiteSetting.sso_redirect_domain_whitelist
 
       # If it's not a relative URL check the host
@@ -22,7 +22,7 @@ after_initialize do
         end
       end
 
-      logger.info "About to redirect to #{redirect}"
+      Rails.logger.info "About to redirect to #{redirect}"
 
       redirect_to redirect
     end
