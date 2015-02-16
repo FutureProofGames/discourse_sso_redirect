@@ -4,10 +4,6 @@
 # authors: Gregory Avery-Weir
 
 after_initialize do
-  Rails.application.routes.draw do
-    get "session/sso_redirect" => "session#sso_redirect"
-  end
-
   SessionController.class_eval do
     skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'sso_redirect']
 
@@ -27,5 +23,9 @@ after_initialize do
 
       redirect_to redirect
     end
+  end
+
+  Rails.application.routes.draw do
+    get "session/sso_redirect" => "session#sso_redirect"
   end
 end
