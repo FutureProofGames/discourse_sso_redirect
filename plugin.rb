@@ -28,7 +28,7 @@ after_initialize do
     end
   end
 
-  Rails.application.routes.draw do
+  Discourse::Application.routes.append do
     get "session/sso_redirect" => "session#sso"
   end
 end
