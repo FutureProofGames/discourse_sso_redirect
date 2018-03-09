@@ -5,7 +5,7 @@
 
 after_initialize do
   SessionController.class_eval do
-    skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'sso_redirect']
+    skip_before_action :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'sso_redirect']
 
     def sso_redirect
       Rails.logger.info "Entering sso_redirect with query string #{request.query_string}"
