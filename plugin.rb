@@ -1,6 +1,6 @@
 # name: discourse_sso_redirect
 # about: allows a whitelist for SSO login redirects
-# version: 0.1
+# version: 1.0.0
 # authors: Gregory Avery-Weir
 
 after_initialize do
@@ -29,6 +29,6 @@ after_initialize do
   end
 
   Discourse::Application.routes.append do
-    get "session/sso_redirect" => "session#sso_redirect"
+    get "session/external_sso_redirect" => "session#sso_redirect"
   end
 end
